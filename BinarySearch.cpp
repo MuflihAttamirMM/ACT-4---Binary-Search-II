@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int element{10};
+int element[10];  // ✅ DIPERBAIKI: array 10 elemen
 int nPanjang;
 int x;
 
@@ -20,11 +20,11 @@ void input()
         {
             cout << "\n[1!] Jumlah elemen tidak boleh lebih dari 10, silahkan coba lagi.\n";
         }
-
     }
-        cout << "\n===============================\n";
-        cout << "   Masukkan Elemen Array         \n";
-        cout << "\n===============================\n";
+
+    cout << "\n===============================\n";
+    cout << "   Masukkan Elemen Array         \n";
+    cout << "\n===============================\n";
     
     for (int i = 0; i < nPanjang; i++)
     {
@@ -57,7 +57,7 @@ void display()
     cout << "   Elemen Array Setelah Diurutkan  (ASC) \n";
     cout << "\n=======================================\n";
     
-        for (int j = 0; j < nPanjang; j++)
+    for (int j = 0; j < nPanjang; j++)
     {
         cout << element[j];
         if (j < nPanjang - 1)
@@ -80,37 +80,37 @@ void binarySearch()
         cout << "Masukkan elemen yang ingin dicari : ";
         cin >> x;
 
-    int low = 0;
-    int high = npanjang - 1;
+        int low = 0;
+        int high = nPanjang - 1;
 
-    do
-    {
-      int mid = ( low + high) / 2;
+        do
+        {
+            int mid = (low + high) / 2;
 
-      if (element[mid] == x)
-      {
-        cout << "\n[✓] elemen " << x << " ditemukan pada indeks " << mid << "\n";
-        return;
-      }
+            if (element[mid] == x)
+            {
+                cout << "\n[v] elemen " << x << " ditemukan pada indeks " << mid << "\n";
+                return;
+            }
 
-      if (x < element[mid])
-      {
-        high = mid - 1;
-      }
+            if (x < element[mid])
+            {
+                high = mid - 1;
+            }
 
-      if (x > element[mid])
-      {
-        low = mid + 1;
-      }
-    } while (low <= high);
+            if (x > element[mid])
+            {
+                low = mid + 1;
+            }
+        } while (low <= high);
 
-    if (low > high)
-    {
-        cout << "\n[✗] elemen " << x << " tidak ditemukan dalam array.\n ";
-    }
+        if (low > high)
+        {
+            cout << "\n[x] elemen " << x << " tidak ditemukan dalam array.\n";
+        }
 
-    cout << "\nIngin mencari lagi? (y/n) : ";
-    cin >> ulang;
+        cout << "\nIngin mencari lagi? (y/n) : ";
+        cin >> ulang;
 
     } while (ulang == 'y' || ulang == 'Y');
 }
